@@ -130,9 +130,9 @@ function draw() {
       let hr = map(heights[i],height/4,height,height/8,height/3);
       fill(cores[i],200);
       if (treepick[i] == 1)
-        drawDeadTree(width/2+randWidthOffset[i], height * 0.9, angle[i], hr, bottomOffsets[i]);
+        drawDeadTree(leftAnkles[i].x, height * 0.9, angle[i], hr, bottomOffsets[i]);
       else
-        drawBuddingTree(width/2+randWidthOffset[i], height * 0.9, angle[i], hr, bottomOffsets[i]);
+        drawBuddingTree(leftAnkles[i].x, height * 0.9, angle[i], hr, bottomOffsets[i]);
       curPerson++;
     }
     
@@ -145,7 +145,7 @@ function draw() {
 function defineVars() {
   npeople = 0;
   for (let i = 0; i < poses.length; i++) {
-    if (poses[i].skeleton.length > 4) {
+    if (poses[i].skeleton.length > 7) {
       npeople++;
       noses[i] = poses[i].pose.keypoints[0].position;
       leftEyes[i] = poses[i].pose.keypoints[1].position;
